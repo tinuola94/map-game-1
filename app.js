@@ -66,7 +66,7 @@ const change_draggable_prop = (draggable) => {
  * @param {DragEvent} event a drag event element
  */
 const ondrag_handler = (event) => {
-  // change th color
+  // change the color
   event
     .currentTarget
     .style
@@ -175,19 +175,17 @@ countryStates.forEach((state) => {
 
 /***
  * IMPLEMENT TIMER FUNCTIONALITY
- *Implementing Timer
+//  * implementing timer
  */
 function countdown(elementName, minutes, seconds) {
   var element, endTime, hours, mins, msLeft, time;
-
-  // Trying to make sure that our time is displaying in numbers
-  
+// trying to make sure time displays in numbers
   function twoDigits(n) {
     return n <= 9 ? "0" + n : n;
   }
-// Start timer
+// start timer
   function updateTimer() {
-    msLeft = endTime - new Date();
+    msLeft = endTime - +new Date();
     if (msLeft < 1000) {
       element.innerHTML = "Game Over!";
     } else {
@@ -201,9 +199,11 @@ function countdown(elementName, minutes, seconds) {
       setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
     }
   }
-  // update timer
+  // Get the container and update timer
   element = document.getElementById(elementName);
   endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
   updateTimer();
 }
 countdown("ten-countdown", 5, 0);
+
+
